@@ -20,7 +20,8 @@ jobs:
         LATEST_UPDATE=$(curl -s "https://api.github.com/users/$GITHUB_USERNAME/repos?sort=updated" | jq -r '.[0].updated_at')
         FORMATTED_UPDATE=$(date -u -d "$LATEST_UPDATE" +"%Y-%m-%d %H:%M:%S UTC")
 
-        sed -i "s/全局更新时间：.*/全局更新时间：**$FORMATTED_UPDATE**/g" README.md
+        # Update README.md
+        sed -i "s/Time:.*/Time: $FORMATTED_UPDATE/g" README.md
 
     - name: Commit and Push Changes
       run: |
