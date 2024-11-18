@@ -11,8 +11,8 @@ Here are some of my favorite projects:
 
 ---
 
-### 🕒 Last Updated
-**2024-11-18 14:00**
+### 🕒 Global Last Updated
+**2024-11-18 14:00 UTC**
 
 ---
 
