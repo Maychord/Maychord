@@ -1,9 +1,9 @@
-name: Update Global Last Updated Time
+name: Update Local Time in Sweden
 
 on:
   schedule:
     - cron: "0 */4 * * *"  # 每4小时运行一次
-  workflow_dispatch:  # 支持手动触发
+  workflow_dispatch:  # 手动触发
 
 jobs:
   update-readme:
@@ -13,20 +13,23 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Fetch Global Update Time
-      env:
-        GITHUB_USERNAME: Maychord
+    - name: Fetch Local Time in Sweden
       run: |
-        LATEST_UPDATE=$(curl -s "https://api.github.com/users/$GITHUB_USERNAME/repos?sort=updated" | jq -r '.[0].updated_at')
-        FORMATTED_UPDATE=$(date -u -d "$LATEST_UPDATE" +"%Y-%m-%d %H:%M:%S UTC")
+        # 获取当前 UTC 时间
+        UTC_TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        
+        # 转换为瑞典时间 (CET/CEST 自动处理)
+        SWEDEN_TIME=$(TZ=Europe/Stockholm date +"%Y-%m-%d %H:%M:%S %Z")
 
-        # Update README.md
-        sed -i "s/Time:.*/Time: $FORMATTED_UPDATE/g" README.md
+        # 替换 README.md 中的时间占位符
+        sed -i "s|Time:.*CET|Time: $SWEDEN_TIME|g" README.md
 
     - name: Commit and Push Changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add README.md
-        git commit -m "Update global last updated time"
-        git push
+        git commit -m "Update local time in Sweden"
+        git push origin main
