@@ -12,7 +12,7 @@ Here are some of my favorite projects:
 ---
 
 ### 🕒 Last Updated
-**更新时间：2024-11-18 14:00**
+**2024-11-18 14:00**
 
 ---
 
