@@ -12,15 +12,9 @@ Here are some of my favorite projects:
 ---
 
 ### 🕒 Global Last Updated
-**2024-11-18 14:00 UTC**
+Time:**2024-11-18 14:00 UTC**
 
 ---
 
 ### 📊 Languages Used Across All Repositories
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Maychord&layout=compact&theme=radical)
-
----
-
-### 🤝 Connect with me
-- 🌐 [GitHub Profile](https://github.com/Maychord)
-- 📧 Reach me via email: **[your-email@example.com](mailto:your-email@example.com)**
