@@ -1,5 +1,6 @@
 # Hi there, this is Maychord 👋
 
+Embrace New Trials Positively
 All lifes suffer, just tide you over.
 
 ---
